@@ -1,11 +1,7 @@
-/* =====================================================
-   KRISHNA JANMASHTAMI
+/* =========================================================
+   SHRI KRISHNA JANMASHTAMI
    COMPLETE RESPONSIVE STYLESHEET
-===================================================== */
-
-/* =====================================================
-   RESET
-===================================================== */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -15,811 +11,611 @@
 
 html {
     scroll-behavior: smooth;
-    width: 100%;
 }
 
 body {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    background: #02040d;
-    color: white;
-
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #03040d;
+    color: #fff;
     overflow-x: hidden;
-    width: 100%;
 }
 
-button,
 a {
-    font-family: inherit;
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
-    cursor: pointer;
+    font: inherit;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+section {
+    position: relative;
+    overflow: hidden;
 }
 
-img {
-    max-width: 100%;
-}
-
-
-/* =====================================================
+/* =========================================================
    LOADER
-===================================================== */
+   ========================================================= */
 
 #loader {
     position: fixed;
     inset: 0;
-
     z-index: 9999;
-
+    background:
+        radial-gradient(circle at center, #17245a 0%, #050714 48%, #02030a 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-    background:
-        radial-gradient(
-            circle,
-            #111b4c,
-            #030511 70%
-        );
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 #loader.hide {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .loader-symbol {
-    font-size: 65px;
-
-    animation:
-        loaderFloat 2s ease-in-out infinite;
+    font-size: 64px;
+    animation: loaderFloat 2s ease-in-out infinite;
 }
 
-.loader-symbol + h2 {
-    margin-top: 15px;
-    font-size: 30px;
+#loader h2 {
+    margin-top: 18px;
+    font-family: Georgia, serif;
+    font-size: 38px;
 }
 
 #loader p {
     margin-top: 8px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: 14px;
+    opacity: 0.65;
 }
 
 .loader-bar {
     width: 180px;
     height: 3px;
-
-    margin-top: 25px;
-
+    margin-top: 28px;
+    background: rgba(255,255,255,.15);
     overflow: hidden;
-
-    background:
-        rgba(255,255,255,.12);
-
     border-radius: 10px;
 }
 
 .loader-bar span {
     display: block;
-
     width: 0;
     height: 100%;
-
-    background: white;
-
-    animation:
-        loading 1.7s ease forwards;
+    background: #dcae54;
+    animation: loaderBar 1.7s ease forwards;
 }
 
-@keyframes loading {
+@keyframes loaderBar {
     to {
         width: 100%;
     }
 }
 
 @keyframes loaderFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
     50% {
         transform: translateY(-12px);
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+   ========================================================= */
 
 nav {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-    height: 80px;
-
-    padding:
-        0 5%;
-
+    height: 76px;
+    padding: 0 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    z-index: 1000;
-
-    transition: .4s;
+    z-index: 500;
+    transition: .4s ease;
 }
 
 nav.scrolled {
-    height: 65px;
-
-    background:
-        rgba(3,5,18,.75);
-
-    backdrop-filter: blur(18px);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
+    background: rgba(3,4,13,.82);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .logo {
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .nav-links {
     display: flex;
-
-    gap: 38px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 12px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1.5px;
+    gap: 36px;
 }
 
 .nav-links a {
-    color:
-        rgba(255,255,255,.7);
-
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: .72;
     transition: .3s;
 }
 
 .nav-links a:hover {
-    color: white;
+    opacity: 1;
+    color: #e8bb68;
 }
 
 #musicBtn {
     width: 42px;
     height: 42px;
-
-    border:
-        1px solid rgba(255,255,255,.2);
-
     border-radius: 50%;
-
-    background:
-        rgba(255,255,255,.05);
-
-    color: white;
-
-    font-size: 18px;
-
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
     transition: .3s;
 }
 
 #musicBtn:hover {
-    background:
-        rgba(255,255,255,.12);
-
-    transform: scale(1.05);
+    background: rgba(220,174,84,.2);
+    transform: scale(1.08);
 }
 
-
-/* =====================================================
-   COMMON
-===================================================== */
-
-.small-title {
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 4px;
-
-    color:
-        rgba(190,200,255,.8);
-}
-
-
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+   ========================================================= */
 
 .hero {
-    position: relative;
-
-    width: 100%;
     min-height: 100vh;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-
+    height: 100vh;
+    position: relative;
+    isolation: isolate;
     background:
         radial-gradient(
-            circle at 70% 40%,
-            rgba(70,90,190,.25),
+            circle at 72% 25%,
+            rgba(39,66,150,.24),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(14,51,92,.25),
             transparent 35%
         ),
         linear-gradient(
             180deg,
-            #030616,
-            #08102c,
-            #040817
+            #070817 0%,
+            #040611 55%,
+            #02030a 100%
         );
 }
 
-
-/* =====================================================
-   STARS
-===================================================== */
-
+/* IMPORTANT:
+   Stars never affect layout */
 #stars {
     position: absolute;
-
     inset: 0;
-
     pointer-events: none;
+    z-index: 1;
 }
 
 .star {
     position: absolute;
-
     display: block;
-
-    border-radius: 50%;
-
     background: white;
-
-    box-shadow:
-        0 0 8px rgba(255,255,255,.8);
-
-    animation:
-        starTwinkle 3s ease-in-out infinite;
+    border-radius: 50%;
+    opacity: .65;
+    animation: twinkle 3s ease-in-out infinite;
 }
 
-@keyframes starTwinkle {
-
+@keyframes twinkle {
     0%,100% {
-        opacity: .2;
+        opacity: .25;
     }
-
     50% {
         opacity: 1;
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    MOON
-===================================================== */
+   ========================================================= */
 
 .moon {
     position: absolute;
-
-    width: 170px;
-    height: 170px;
-
-    top: 16%;
-    right: 12%;
-
+    z-index: 2;
+    top: 13%;
+    right: 10%;
+    width: clamp(90px, 10vw, 150px);
+    aspect-ratio: 1;
     border-radius: 50%;
-
     background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff,
-            #fff8cf
-        );
-
+        radial-gradient(circle at 35% 30%, #fffdf0, #eee6bf 55%, #c8bd8b);
     box-shadow:
-        0 0 35px rgba(255,250,215,.7),
-        0 0 100px rgba(180,195,255,.25);
-
-    animation:
-        moonPulse 5s ease-in-out infinite;
+        0 0 35px rgba(255,245,190,.35),
+        0 0 100px rgba(180,190,255,.12);
 }
 
-@keyframes moonPulse {
-
-    50% {
-        box-shadow:
-            0 0 55px rgba(255,250,215,.9),
-            0 0 130px rgba(180,195,255,.35);
-    }
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    right: -28%;
+    top: -8%;
+    border-radius: 50%;
+    background: #070817;
 }
 
-
-/* =====================================================
+/* =========================================================
    CLOUDS
-===================================================== */
+   ========================================================= */
 
 .cloud {
     position: absolute;
-
-    width: 300px;
-    height: 80px;
-
+    z-index: 2;
+    width: 350px;
+    height: 100px;
     border-radius: 50%;
-
-    background:
-        rgba(90,110,180,.08);
-
-    filter: blur(20px);
-
-    animation:
-        cloudMove 20s linear infinite;
+    background: rgba(75,95,150,.07);
+    filter: blur(15px);
+    pointer-events: none;
 }
 
 .cloud1 {
-    top: 25%;
-    left: -200px;
+    top: 23%;
+    left: -100px;
 }
 
 .cloud2 {
-    top: 48%;
-    right: -250px;
-
-    animation-duration: 27s;
-    animation-direction: reverse;
+    top: 40%;
+    right: -120px;
 }
 
-@keyframes cloudMove {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(120vw);
-    }
-}
-
-
-/* =====================================================
-   KRISHNA
-===================================================== */
-
-.krishna-visual {
-    position: absolute;
-
-    right: 3%;
-    bottom: 5%;
-
-    width: min(700px, 55vw);
-    max-width: 700px;
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    transition:
-        transform .2s ease-out;
-}
-
-.krishna-visual img {
-    display: block;
-
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-
-    object-fit: contain;
-
-    opacity: .92;
-
-    filter:
-        drop-shadow(
-            0 0 35px rgba(100,130,255,.25)
-        );
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black 70%,
-            transparent 100%
-        );
-}
-
-
-/* =====================================================
+/* =========================================================
    HERO CONTENT
-===================================================== */
+   THIS IS THE MAIN FIX
+   ========================================================= */
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    z-index: 20;
 
-    z-index: 10;
+    /* FIXED LEFT POSITION */
+    left: clamp(35px, 8vw, 125px);
+    top: 50%;
 
-    margin-left: 9%;
+    width: min(520px, 40vw);
 
-    width: min(650px, 40vw);
-    max-width: 650px;
+    /* only vertical centering */
+    transform: translateY(-50%);
 
-    padding-top: 30px;
+    text-align: left;
+}
 
-    flex-shrink: 0;
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d8ad5c;
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    margin-top: 22px;
-
-    font-size:
-        clamp(65px, 9vw, 125px);
-
-    line-height: .88;
-
-    letter-spacing: -4px;
+    margin: 0;
+    line-height: .9;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 .hero h1 span {
     display: block;
-
-    color: white;
+    font-size: clamp(42px, 5vw, 78px);
+    font-weight: 400;
+    margin-bottom: 12px;
 }
 
 .hero h1 strong {
     display: block;
-
-    color: #a9b7ff;
-
-    font-weight: normal;
-
-    text-shadow:
-        0 0 35px rgba(130,150,255,.3);
+    font-size: clamp(48px, 6vw, 92px);
+    font-weight: 500;
+    background: linear-gradient(
+        120deg,
+        #fff6d4,
+        #d9a844,
+        #fff1bb
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-text {
+    max-width: 450px;
     margin-top: 30px;
-
-    max-width: 430px;
-
-    color:
-        rgba(255,255,255,.62);
-
-    line-height: 1.8;
-
-    font-size: 17px;
+    font-size: clamp(15px, 1.3vw, 19px);
+    line-height: 1.7;
+    color: rgba(255,255,255,.7);
 }
 
-
-/* =====================================================
+/* =========================================================
    BUTTONS
-===================================================== */
+   ========================================================= */
 
 .buttons {
     display: flex;
-
-    gap: 15px;
-
-    margin-top: 35px;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
 }
 
 .buttons a {
-    padding:
-        15px 24px;
-
-    border-radius: 50px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 25px;
+    border-radius: 30px;
     font-size: 13px;
-
-    transition: .3s;
+    letter-spacing: 1px;
+    transition: .3s ease;
 }
 
 .primary {
-    background: white;
-
-    color: #080b20;
+    background: linear-gradient(135deg, #e5b65c, #a87528);
+    color: #090a11;
+    font-weight: 600;
+    box-shadow: 0 10px 35px rgba(220,174,84,.2);
 }
 
 .primary:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 35px rgba(255,255,255,.15);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(220,174,84,.3);
 }
 
 .secondary {
-    border:
-        1px solid rgba(255,255,255,.2);
-
-    background:
-        rgba(255,255,255,.04);
-
-    color: white;
-
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.04);
 }
 
 .secondary:hover {
-    transform: translateY(-4px);
-
-    background:
-        rgba(255,255,255,.1);
+    background: rgba(255,255,255,.1);
+    transform: translateY(-3px);
 }
 
+/* =========================================================
+   KRISHNA
+   MAIN LAYOUT FIX
+   ========================================================= */
 
-/* =====================================================
-   HERO RIVER
-===================================================== */
-
-.yamuna {
+.krishna-visual {
     position: absolute;
 
+    z-index: 10;
+
+    /* RIGHT SIDE */
+    right: clamp(15px, 3vw, 65px);
     bottom: 0;
-    left: 0;
 
+    /* NEVER allow image to push text */
+    width: min(680px, 48vw);
+
+    pointer-events: none;
+
+    animation: krishnaFloat 6s ease-in-out infinite;
+}
+
+.krishna-visual img {
+    display: block;
     width: 100%;
-    height: 15%;
+    height: auto;
+    max-width: 100%;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(20,60,100,.4),
-            #030a17
-        );
+    filter:
+        drop-shadow(0 0 18px rgba(80,130,255,.35))
+        drop-shadow(0 0 55px rgba(60,90,220,.18));
 
-    overflow: hidden;
+    opacity: .98;
 }
 
-.wave {
+.krishna-visual::before {
+    content: "";
     position: absolute;
 
-    left: -20%;
+    left: 50%;
+    bottom: 10%;
 
-    width: 140%;
-    height: 80px;
+    width: 75%;
+    height: 70%;
 
-    border-top:
-        2px solid rgba(130,180,255,.2);
-
-    border-radius: 50%;
-
-    animation:
-        riverFlow 8s ease-in-out infinite;
-}
-
-.wave1 {
-    top: 10px;
-}
-
-.wave2 {
-    top: 40px;
-
-    animation-delay: -2s;
-}
-
-.wave3 {
-    top: 70px;
-
-    animation-delay: -4s;
-}
-
-.wave4 {
-    top: 100px;
-
-    animation-delay: -6s;
-}
-
-@keyframes riverFlow {
-
-    0%,100% {
-        transform: translateX(-3%);
-    }
-
-    50% {
-        transform: translateX(3%);
-    }
-}
-
-
-/* =====================================================
-   HERO LOTUS
-===================================================== */
-
-.hero-lotus {
-    position: absolute;
-
-    width: 18px;
-    height: 12px;
-
-    border-radius: 50%;
+    transform: translateX(-50%);
 
     background:
         radial-gradient(
             ellipse,
-            rgba(255,180,220,.8),
-            rgba(120,90,180,.3)
+            rgba(60,110,255,.18),
+            transparent 70%
         );
 
-    box-shadow:
-        0 0 15px rgba(255,160,220,.3);
-
-    animation:
-        lotusFloat 5s ease-in-out infinite;
+    filter: blur(40px);
+    z-index: -1;
 }
 
-@keyframes lotusFloat {
-
+@keyframes krishnaFloat {
     0%,100% {
-        transform:
-            translateY(0)
-            rotate(-4deg);
+        margin-bottom: 0;
     }
 
     50% {
-        transform:
-            translateY(-8px)
-            rotate(4deg);
+        margin-bottom: 10px;
     }
 }
 
+/* =========================================================
+   YAMUNA
+   ========================================================= */
 
-/* =====================================================
-   WATER SHIMMER
-===================================================== */
-
-#waterShimmer {
+.yamuna {
     position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
+    z-index: 5;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
     background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(150,190,255,.08),
-            transparent
+            180deg,
+            rgba(15,39,75,.05),
+            rgba(9,35,65,.65)
         );
-
-    background-size: 220px 100%;
-
-    animation:
-        waterShimmer 5s linear infinite;
+    overflow: hidden;
 }
 
-@keyframes waterShimmer {
+.moon-reflection {
+    position: absolute;
+    top: 0;
+    left: 72%;
+    width: 140px;
+    height: 80px;
+    background: radial-gradient(
+        ellipse,
+        rgba(255,230,150,.18),
+        transparent 70%
+    );
+    filter: blur(10px);
+}
 
-    from {
-        background-position: -220px 0;
+#waterShimmer,
+#vrindavanShimmer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.water-light {
+    position: absolute;
+    height: 1px;
+    background: rgba(180,210,255,.25);
+    border-radius: 50%;
+    animation: waterMove 5s ease-in-out infinite;
+}
+
+@keyframes waterMove {
+    0%,100% {
+        transform: translateX(-20px);
+        opacity: .1;
     }
 
-    to {
-        background-position: 100% 0;
+    50% {
+        transform: translateX(25px);
+        opacity: .7;
     }
 }
 
+.wave {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 60px;
+    border-top: 1px solid rgba(100,160,220,.15);
+    border-radius: 50%;
+}
 
-/* =====================================================
+.wave1 {
+    top: 25%;
+}
+
+.wave2 {
+    top: 42%;
+}
+
+.wave3 {
+    top: 60%;
+}
+
+.wave4 {
+    top: 78%;
+}
+
+/* =========================================================
+   HERO LOTUS
+   ========================================================= */
+
+.hero-lotus {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255,150,190,.25);
+    filter: blur(1px);
+    animation: lotusFloat 4s ease-in-out infinite;
+}
+
+@keyframes lotusFloat {
+    50% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+}
+
+/* =========================================================
    SCROLL
-===================================================== */
+   ========================================================= */
 
 .scroll {
     position: absolute;
-
-    bottom: 25px;
+    z-index: 30;
     left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    z-index: 10;
-
-    font-family:
-        Arial,
-        sans-serif;
-
+    bottom: 25px;
+    transform: translateX(-50%);
     font-size: 9px;
-
     letter-spacing: 3px;
-
-    color:
-        rgba(255,255,255,.45);
+    opacity: .45;
+    white-space: nowrap;
 }
 
 .scroll span {
     display: block;
-
     width: 1px;
-    height: 35px;
-
-    margin: 12px auto 0;
-
-    background:
-        rgba(255,255,255,.4);
-
-    animation:
-        scrollLine 1.5s infinite;
+    height: 30px;
+    margin: 8px auto 0;
+    background: rgba(255,255,255,.5);
+    animation: scrollLine 2s ease-in-out infinite;
 }
 
 @keyframes scrollLine {
-
     50% {
         transform: scaleY(.4);
         transform-origin: top;
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    INTRO
-===================================================== */
+   ========================================================= */
 
 .intro {
-    position: relative;
-
     min-height: 75vh;
-
-    padding:
-        120px 10%;
-
-    display: flex;
+    padding: 130px 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
-
-    gap: 70px;
-
+    gap: 80px;
     background:
-        linear-gradient(
-            180deg,
-            #040817,
-            #070b20
-        );
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(47,60,130,.18),
+            transparent 35%
+        ),
+        #050713;
 }
 
 .intro-text {
@@ -827,1594 +623,660 @@ nav.scrolled {
 }
 
 .intro h2 {
-    margin:
-        20px 0 30px;
-
-    font-size:
-        clamp(45px, 6vw, 75px);
-
-    line-height: 1;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 35px;
 }
 
 .intro h2 em {
-    color: #a9b7ff;
-
-    font-style: normal;
+    color: #d9ac57;
+    font-style: italic;
 }
 
 .intro-text > p:not(.small-title) {
-    margin-top: 18px;
-
-    color:
-        rgba(255,255,255,.6);
-
-    line-height: 1.8;
+    max-width: 570px;
+    color: rgba(255,255,255,.6);
+    line-height: 1.9;
+    margin-bottom: 18px;
 }
 
 .om {
-    font-size: 220px;
-
-    opacity: .08;
-
-    animation:
-        omFloat 5s ease-in-out infinite;
+    font-size: clamp(150px, 20vw, 300px);
+    font-family: Georgia, serif;
+    text-align: center;
+    opacity: .06;
 }
 
-@keyframes omFloat {
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-
-/* =====================================================
+/* =========================================================
    STORY
-===================================================== */
+   ========================================================= */
 
 .story {
-    position: relative;
-
-    padding:
-        150px 8%;
-
-    overflow: hidden;
-
+    min-height: 100vh;
+    padding: 130px 7%;
     background:
         radial-gradient(
-            circle at 50% 30%,
-            rgba(70,80,180,.25),
-            transparent 40%
+            circle at center,
+            rgba(32,52,120,.22),
+            transparent 45%
         ),
-        linear-gradient(
-            180deg,
-            #050817,
-            #090f2d,
-            #050817
-        );
+        #03050e;
 }
 
 .story-glow {
     position: absolute;
-
-    width: 650px;
-    height: 650px;
-
+    width: 500px;
+    height: 500px;
     left: 50%;
-    top: 20%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(90,110,255,.13),
-            transparent 70%
-        );
-
-    pointer-events: none;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(
+        circle,
+        rgba(70,100,230,.12),
+        transparent 70%
+    );
+    filter: blur(20px);
 }
 
 .section-title {
     position: relative;
-
     z-index: 2;
-
     text-align: center;
-
-    max-width: 750px;
-
-    margin:
-        0 auto 110px;
+    max-width: 700px;
+    margin: 0 auto 90px;
 }
 
 .section-title h2 {
-    margin-top: 20px;
-
-    font-size:
-        clamp(45px, 6vw, 78px);
-
-    line-height: 1;
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .section-title > p:last-child {
-    margin-top: 25px;
-
-    color:
-        rgba(255,255,255,.6);
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
 }
-
-
-/* =====================================================
-   TIMELINE
-===================================================== */
 
 .story-timeline {
     position: relative;
-
     max-width: 1100px;
-
     margin: auto;
 }
 
 .story-line {
     position: absolute;
-
     top: 0;
     bottom: 0;
-
     left: 50%;
-
-    width: 6px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            #8ea3ff 12%,
-            #ffffff 45%,
-            #8ea3ff 80%,
-            transparent
-        );
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 0 10px rgba(140,160,255,.8),
-        0 0 30px rgba(100,120,255,.45);
-
-    z-index: 0;
+    width: 1px;
+    background: linear-gradient(
+        transparent,
+        rgba(218,174,88,.5),
+        transparent
+    );
 }
 
 .story-line span {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 40%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            white,
-            #8ea3ff,
-            transparent
-        );
-
-    box-shadow:
-        0 0 20px rgba(130,150,255,.8);
+    position: sticky;
+    top: 50%;
+    display: block;
+    width: 9px;
+    height: 9px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: #e0b45e;
+    box-shadow: 0 0 20px #e0b45e;
 }
 
 .story-card {
     position: relative;
-
-    width: 50%;
-
-    padding:
-        25px 70px 90px 0;
+    width: 46%;
+    margin-bottom: 80px;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
 }
 
 .story-card-right {
-    margin-left: 50%;
-
-    padding:
-        25px 0 90px 70px;
-}
-
-.story-info {
-    padding: 35px;
-
-    border-radius: 25px;
-
-    border:
-        1px solid rgba(255,255,255,.12);
-
-    background:
-        rgba(255,255,255,.045);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.25),
-        inset 0 1px rgba(255,255,255,.05);
-
-    transition: .5s;
-}
-
-.story-info:hover {
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(150,170,255,.4);
-
-    box-shadow:
-        0 30px 80px rgba(40,50,150,.35);
+    margin-left: 54%;
 }
 
 .story-number {
-    position: absolute;
-
-    top: 37px;
-    right: -21px;
-
-    width: 43px;
-    height: 43px;
-
-    border-radius: 50%;
-
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #111838;
-
-    border:
-        2px solid rgba(255,255,255,.55);
-
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
-    z-index: 5;
-
-    box-shadow:
-        0 0 0 8px rgba(5,8,23,.8),
-        0 0 25px rgba(120,140,255,.5);
+    border: 1px solid rgba(220,174,84,.4);
+    border-radius: 50%;
+    color: #e1b45e;
+    font-size: 13px;
 }
 
-.story-card-right .story-number {
-    left: -21px;
-    right: auto;
+.story-info {
+    padding: 5px 0;
 }
 
 .story-place {
-    display: block;
-
-    color: #aab9ff;
-
-    font-family: Arial, sans-serif;
-
     font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: #d9ac57;
 }
 
 .story-info h3 {
-    font-size: 34px;
-
-    margin-bottom: 18px;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 12px 0;
 }
 
 .story-info p {
-    color:
-        rgba(255,255,255,.63);
-
-    line-height: 1.8;
-
-    font-size: 16px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
 }
 
 .story-symbol {
-    margin-top: 25px;
-
-    font-size: 30px;
-
-    opacity: .8;
+    margin-top: 20px;
+    font-size: 28px;
+    opacity: .5;
 }
 
-
-/* =====================================================
-   STORY REVEAL
-===================================================== */
-
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(70px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =====================================================
-   PREMIUM VRINDAVAN
-===================================================== */
+/* =========================================================
+   VRINDAVAN
+   ========================================================= */
 
 .vrindavan {
-    position: relative;
-
     min-height: 100vh;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     background:
         radial-gradient(
             circle at 50% 25%,
-            rgba(75,95,180,.25),
-            transparent 30%
+            rgba(70,90,160,.2),
+            transparent 35%
         ),
         linear-gradient(
             180deg,
-            #07102d 0%,
-            #091936 45%,
-            #061522 70%,
-            #020b09 100%
+            #080b1c,
+            #061024 65%,
+            #03070f
         );
+}
+
+.vrindavan-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
+    background-size: 95px 95px;
+    opacity: .18;
 }
 
 .vrindavan-moon {
     position: absolute;
-
-    width: 130px;
-    height: 130px;
-
-    top: 90px;
-    right: 13%;
-
-    border-radius: 50%;
-
-    background: #fff9dc;
-
-    box-shadow:
-        0 0 30px rgba(255,250,210,.7),
-        0 0 90px rgba(170,190,255,.35);
-
-    animation:
-        moonGlow 4s ease-in-out infinite;
-}
-
-@keyframes moonGlow {
-
-    0%,100% {
-        box-shadow:
-            0 0 30px rgba(255,250,210,.7),
-            0 0 90px rgba(170,190,255,.35);
-    }
-
-    50% {
-        box-shadow:
-            0 0 45px rgba(255,250,210,.9),
-            0 0 120px rgba(170,190,255,.5);
-    }
-}
-
-
-/* =====================================================
-   VRINDAVAN STARS
-===================================================== */
-
-.vrindavan-stars {
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-}
-
-.vrindavan-stars::before,
-.vrindavan-stars::after {
-    content:
-        "✦   ·   ✧      ·     ✦   ·     ✧    ·   ✦";
-
-    position: absolute;
-
-    width: 100%;
-
     top: 12%;
-    left: 0;
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-size: 14px;
-
-    letter-spacing: 35px;
-
-    animation:
-        starsMove 8s linear infinite;
+    right: 15%;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #e8e0b7;
+    box-shadow: 0 0 70px rgba(230,220,170,.2);
 }
-
-.vrindavan-stars::after {
-    top: 28%;
-
-    opacity: .45;
-
-    animation-duration: 12s;
-
-    transform:
-        translateX(-100px);
-}
-
-@keyframes starsMove {
-
-    0% {
-        opacity: .25;
-        transform: translateY(0);
-    }
-
-    50% {
-        opacity: .8;
-    }
-
-    100% {
-        opacity: .25;
-        transform: translateY(20px);
-    }
-}
-
-
-/* =====================================================
-   VRINDAVAN CONTENT
-===================================================== */
 
 .vrindavan-content {
     position: relative;
-
-    z-index: 10;
-
+    z-index: 20;
+    padding-top: 18vh;
     text-align: center;
-
-    margin-top: -100px;
 }
 
 .vrindavan-content h2 {
-    margin: 15px 0;
-
-    font-size:
-        clamp(70px, 10vw, 145px);
-
-    line-height: 1;
-
-    color: white;
-
-    text-shadow:
-        0 0 20px rgba(150,170,255,.35),
-        0 0 70px rgba(100,120,255,.25);
+    font-family: Georgia, serif;
+    font-size: clamp(70px, 11vw, 150px);
+    font-weight: 400;
+    color: #e7b95d;
+    text-shadow: 0 0 45px rgba(230,185,93,.2);
 }
 
 .vrindavan-content > p:not(.small-title) {
-    color:
-        rgba(255,255,255,.7);
-
-    font-size: 19px;
-
-    margin-bottom: 35px;
+    margin-top: 15px;
+    color: rgba(255,255,255,.6);
+    font-size: 18px;
 }
-
-
-/* =====================================================
-   FLUTE BUTTON
-===================================================== */
 
 #fluteBtn {
-    position: relative;
-
-    padding:
-        18px 32px;
-
-    border-radius: 50px;
-
-    border:
-        1px solid rgba(255,255,255,.25);
-
-    background:
-        rgba(255,255,255,.06);
-
-    color: white;
-
-    font-size: 17px;
-
-    backdrop-filter: blur(15px);
-
-    transition: .4s;
+    margin-top: 35px;
+    padding: 15px 28px;
+    border-radius: 40px;
+    border: 1px solid rgba(220,174,84,.45);
+    background: rgba(220,174,84,.08);
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
 }
 
-#fluteBtn:hover {
-    transform:
-        translateY(-5px)
-        scale(1.03);
-
-    background:
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 15px 45px rgba(50,80,180,.3),
-        0 0 30px rgba(140,160,255,.2);
-}
-
+#fluteBtn:hover,
 #fluteBtn.playing {
-    border-color:
-        rgba(150,180,255,.7);
-
-    box-shadow:
-        0 0 25px rgba(120,150,255,.5),
-        0 0 70px rgba(100,120,255,.25);
-
-    animation:
-        flutePulse 1.5s infinite;
+    background: rgba(220,174,84,.2);
+    box-shadow: 0 0 35px rgba(220,174,84,.15);
+    transform: translateY(-3px);
 }
-
-@keyframes flutePulse {
-
-    50% {
-        transform: scale(1.04);
-    }
-}
-
-
-/* =====================================================
-   VRINDAVAN YAMUNA
-===================================================== */
 
 .yamuna-vrindavan {
     position: absolute;
-
     bottom: 0;
     left: 0;
-
     width: 100%;
-    height: 23%;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(20,70,110,.65),
-            rgba(5,25,45,.95)
-        );
-
-    z-index: 2;
-
-    overflow: hidden;
+    height: 34%;
+    background: linear-gradient(
+        180deg,
+        rgba(17,51,83,.1),
+        rgba(9,40,65,.8)
+    );
 }
 
-.yamuna-vrindavan div {
+.vr-wave {
     position: absolute;
-
-    width: 180%;
-    height: 100px;
-
-    left: -40%;
-
+    left: -10%;
+    width: 120%;
+    height: 70px;
+    border-top: 1px solid rgba(110,180,220,.18);
     border-radius: 50%;
-
-    border-top:
-        2px solid rgba(130,190,255,.25);
-
-    animation:
-        riverWave 7s ease-in-out infinite;
 }
 
-.yamuna-vrindavan div:nth-child(1) {
-    top: 15px;
+.vr-wave:nth-child(3) {
+    top: 20%;
 }
 
-.yamuna-vrindavan div:nth-child(2) {
-    top: 55px;
-
-    animation-delay: -2s;
+.vr-wave:nth-child(4) {
+    top: 45%;
 }
 
-.yamuna-vrindavan div:nth-child(3) {
-    top: 95px;
-
-    animation-delay: -4s;
+.vr-wave:nth-child(5) {
+    top: 70%;
 }
 
-@keyframes riverWave {
-
-    0%,100% {
-        transform: translateX(-4%);
-    }
-
-    50% {
-        transform: translateX(4%);
-    }
-}
-
-
-/* =====================================================
-   VRINDAVAN LAND
-===================================================== */
-
-.vrindavan .land {
+.land {
     position: absolute;
-
-    inset:
-        auto 0 0;
-
-    height: 43%;
-
-    z-index: 3;
-
-    pointer-events: none;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    height: 100px;
 }
 
-.vrindavan .hill {
+.hill {
     position: absolute;
-
-    bottom: 12%;
-
+    bottom: 0;
     width: 55%;
-    height: 55%;
-
-    background: #03150f;
-
-    border-radius:
-        50% 50% 0 0;
+    height: 100px;
+    background: #07150e;
+    border-radius: 50% 50% 0 0;
 }
 
-.vrindavan .hill.left {
-    left: -8%;
+.hill.left {
+    left: -15%;
 }
 
-.vrindavan .hill.right {
-    right: -8%;
+.hill.right {
+    right: -15%;
 }
 
-.vrindavan .tree {
+.tree,
+.cow {
     position: absolute;
-
-    bottom: 17%;
-
-    font-size: 75px;
-
-    filter:
-        drop-shadow(
-            0 8px 15px rgba(0,0,0,.5)
-        );
-
-    animation:
-        treeFloat 5s ease-in-out infinite;
+    z-index: 3;
 }
 
-.vrindavan .tree-left {
-    left: 10%;
+.tree {
+    font-size: 100px;
+    bottom: -15px;
 }
 
-.vrindavan .tree-right {
-    right: 10%;
-
-    animation-delay: -2s;
+.tree-left {
+    left: 5%;
 }
 
-@keyframes treeFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
+.tree-right {
+    right: 5%;
 }
 
-.vrindavan .cow {
+.cow {
+    font-size: 38px;
+    bottom: 0;
+}
+
+.cow-left {
+    left: 25%;
+}
+
+.cow-right {
+    right: 25%;
+}
+
+.floating-feather,
+.firefly {
     position: absolute;
-
-    bottom: 17%;
-
-    font-size: 60px;
-
-    filter:
-        drop-shadow(
-            0 10px 12px rgba(0,0,0,.5)
-        );
-
-    animation:
-        cowMove 6s ease-in-out infinite;
-}
-
-.vrindavan .cow-left {
-    left: 30%;
-}
-
-.vrindavan .cow-right {
-    right: 27%;
-
-    animation-delay: -3s;
-}
-
-@keyframes cowMove {
-
-    0%,100% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(12px);
-    }
-}
-
-
-/* =====================================================
-   FEATHERS
-===================================================== */
-
-#feathers {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 6;
-
     pointer-events: none;
 }
 
 .floating-feather {
-    position: absolute;
-
-    font-size: 22px;
-
-    opacity: .7;
-
-    animation:
-        featherFall linear infinite;
-
-    pointer-events: none;
+    animation: featherMove 12s linear infinite;
+    opacity: .5;
 }
 
-@keyframes featherFall {
-
-    0% {
-        transform:
-            translateY(-100px)
-            rotate(0deg);
-
-        opacity: 0;
+@keyframes featherMove {
+    from {
+        transform: translateY(100vh) rotate(0deg);
     }
-
-    15% {
-        opacity: .8;
+    to {
+        transform: translateY(-100px) rotate(360deg);
     }
-
-    50% {
-        transform:
-            translateY(50vh)
-            translateX(50px)
-            rotate(180deg);
-    }
-
-    100% {
-        transform:
-            translateY(110vh)
-            translateX(-80px)
-            rotate(360deg);
-
-        opacity: 0;
-    }
-}
-
-
-/* =====================================================
-   FIREFLIES
-===================================================== */
-
-#fireflies {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 5;
-
-    pointer-events: none;
 }
 
 .firefly {
-    position: absolute;
-
-    width: 5px;
-    height: 5px;
-
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-
-    background: #fff4a8;
-
-    box-shadow:
-        0 0 8px #fff4a8,
-        0 0 18px rgba(255,230,120,.7);
-
-    animation:
-        fireflyFloat 4s ease-in-out infinite;
+    background: #f4d66d;
+    box-shadow: 0 0 12px #f4d66d;
+    animation: firefly 3s ease-in-out infinite;
 }
 
-@keyframes fireflyFloat {
-
+@keyframes firefly {
     0%,100% {
-        opacity: .15;
-
-        transform:
-            translate(0,0);
+        opacity: .1;
+        transform: scale(.7);
     }
-
     50% {
         opacity: 1;
-
-        transform:
-            translate(20px,-30px);
+        transform: scale(1.5);
     }
 }
 
-
-/* =====================================================
-   PREMIUM CELEBRATION
-===================================================== */
+/* =========================================================
+   CELEBRATION
+   ========================================================= */
 
 .celebrate {
-    position: relative;
-
     min-height: 100vh;
-
-    overflow: hidden;
-
+    padding: 120px 7%;
     display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    text-align: center;
     background:
         radial-gradient(
-            circle at 50% 35%,
-            rgba(100,90,210,.24),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(30,80,150,.18),
+            circle at center,
+            rgba(150,85,25,.16),
             transparent 45%
         ),
-        linear-gradient(
-            180deg,
-            #050817,
-            #090b24,
-            #03050f
-        );
+        #09050a;
 }
-
-.celebrate-glow {
-    position: absolute;
-
-    width: 600px;
-    height: 600px;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(120,130,255,.16),
-            transparent 68%
-        );
-
-    filter: blur(5px);
-
-    animation:
-        celebrationGlow 5s ease-in-out infinite;
-
-    pointer-events: none;
-}
-
-@keyframes celebrationGlow {
-
-    0%,100% {
-        transform:
-            translate(-50%,-50%)
-            scale(.9);
-
-        opacity: .6;
-    }
-
-    50% {
-        transform:
-            translate(-50%,-50%)
-            scale(1.12);
-
-        opacity: 1;
-    }
-}
-
-
-/* =====================================================
-   CELEBRATION CONTENT
-===================================================== */
 
 .celebrate-content {
     position: relative;
-
-    z-index: 10;
-
-    text-align: center;
-
-    padding-top: 40px;
+    z-index: 5;
 }
 
 .celebrate h2 {
-    margin-top: 18px;
-
-    font-size:
-        clamp(50px,7vw,90px);
-
-    line-height: 1;
-
-    letter-spacing: -2px;
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 6vw, 85px);
+    font-weight: 400;
 }
 
 .celebrate h2 em {
-    color: #aab8ff;
-
-    font-style: normal;
-
-    text-shadow:
-        0 0 25px rgba(140,160,255,.4);
+    color: #dfad4e;
 }
 
 .celebrate-subtitle {
-    margin-top: 20px;
-
-    color:
-        rgba(255,255,255,.6);
-
-    font-size: 17px;
+    margin-top: 15px;
+    color: rgba(255,255,255,.55);
 }
-
-
-/* =====================================================
-   MATKI STAGE
-===================================================== */
 
 .matki-stage {
     position: relative;
-
     width: 300px;
-    height: 360px;
-
-    margin:
-        20px auto 0;
+    height: 350px;
+    margin: 30px auto 10px;
 }
-
-
-/* =====================================================
-   ROPE
-===================================================== */
 
 .rope {
     position: absolute;
-
-    left: 50%;
     top: 0;
-
-    width: 4px;
-    height: 125px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            #9b7547 0px,
-            #d1a76b 5px,
-            #805d35 10px
-        );
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 0 8px rgba(210,170,100,.3);
+    left: 50%;
+    width: 3px;
+    height: 110px;
+    transform: translateX(-50%);
+    background: #c69b52;
 }
-
-.rope::before,
-.rope::after {
-    content: "";
-
-    position: absolute;
-
-    top: -5px;
-
-    width: 14px;
-    height: 14px;
-
-    border-radius: 50%;
-
-    background: #b68a52;
-}
-
-.rope::before {
-    left: -5px;
-}
-
-.rope::after {
-    right: -5px;
-}
-
-
-/* =====================================================
-   MATKI AURA
-===================================================== */
 
 .matki-aura {
     position: absolute;
-
     left: 50%;
-    top: 115px;
-
-    width: 190px;
-    height: 190px;
-
-    transform:
-        translateX(-50%);
-
+    top: 130px;
+    width: 180px;
+    height: 180px;
+    transform: translateX(-50%);
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(160,170,255,.18),
-            transparent 68%
-        );
-
-    filter: blur(4px);
-
-    animation:
-        matkiAura 3s ease-in-out infinite;
+    background: radial-gradient(
+        circle,
+        rgba(240,180,65,.16),
+        transparent 70%
+    );
+    filter: blur(12px);
 }
-
-@keyframes matkiAura {
-
-    0%,100% {
-        transform:
-            translateX(-50%)
-            scale(.9);
-
-        opacity: .45;
-    }
-
-    50% {
-        transform:
-            translateX(-50%)
-            scale(1.15);
-
-        opacity: .9;
-    }
-}
-
-
-/* =====================================================
-   MATKI
-===================================================== */
 
 #matki {
     position: absolute;
-
     left: 50%;
-    top: 105px;
-
-    width: 170px;
-    height: 185px;
-
-    transform:
-        translateX(-50%);
-
-    transform-origin: top center;
-
-    filter:
-        drop-shadow(
-            0 25px 30px rgba(0,0,0,.45)
-        );
-
-    transition: .4s;
+    top: 100px;
+    width: 150px;
+    transform: translateX(-50%);
+    cursor: pointer;
 }
 
 .matki-neck {
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: 65px;
-    height: 35px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        linear-gradient(
-            90deg,
-            #7d4527,
-            #c17b43,
-            #7d4527
-        );
-
-    border-radius:
-        10px 10px 5px 5px;
-
-    z-index: 2;
+    width: 58px;
+    height: 32px;
+    margin: auto;
+    background: linear-gradient(
+        90deg,
+        #8b4b1f,
+        #d49a4b,
+        #8b4b1f
+    );
+    border-radius: 8px 8px 3px 3px;
 }
 
 .matki-body {
-    position: absolute;
-
-    top: 22px;
-    left: 50%;
-
-    width: 165px;
-    height: 150px;
-
-    transform:
-        translateX(-50%);
-
+    height: 145px;
+    border-radius: 45% 45% 42% 42%;
     background:
         radial-gradient(
             circle at 35% 25%,
-            #d69b61,
-            #a95f34 45%,
-            #6c3424 100%
+            #f0bd70,
+            #a75b29 65%,
+            #65300f
         );
-
-    border-radius:
-        45% 45% 50% 50%;
-
-    border:
-        3px solid rgba(255,210,150,.3);
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow:
-        inset 0 10px 25px rgba(255,220,170,.18),
-        inset 0 -20px 30px rgba(50,15,10,.3),
-        0 0 30px rgba(180,110,70,.2);
+        inset -15px -20px 30px rgba(0,0,0,.25),
+        0 15px 35px rgba(0,0,0,.3);
 }
 
 .matki-body span {
-    position: absolute;
-
-    left: 50%;
-    top: 48%;
-
-    transform:
-        translate(-50%,-50%);
-
-    font-size: 42px;
-
-    color:
-        rgba(255,225,180,.8);
-
-    text-shadow:
-        0 0 15px rgba(255,210,150,.4);
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: #5b260c;
 }
-
-
-/* =====================================================
-   MATKI DECORATION
-===================================================== */
 
 .matki-decoration {
     position: absolute;
-
-    left: 50%;
-    top: 80px;
-
-    width: 130px;
-    height: 18px;
-
-    transform:
-        translateX(-50%)
-        rotate(-3deg);
-
-    border-top:
-        3px solid rgba(255,220,160,.65);
-
-    border-bottom:
-        3px solid rgba(255,220,160,.35);
-
+    top: 92px;
+    left: 15px;
+    right: 15px;
+    height: 8px;
     border-radius: 50%;
+    background: #e3b55d;
 }
-
-.matki-decoration::before,
-.matki-decoration::after {
-    content: "✦";
-
-    position: absolute;
-
-    top: -14px;
-
-    font-size: 18px;
-
-    color: #fff0c0;
-
-    text-shadow:
-        0 0 10px rgba(255,220,150,.8);
-}
-
-.matki-decoration::before {
-    left: -15px;
-}
-
-.matki-decoration::after {
-    right: -15px;
-}
-
-
-/* =====================================================
-   INSTRUCTION
-===================================================== */
-
-.matki-instruction {
-    color:
-        rgba(255,255,255,.45);
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-
-    letter-spacing: 1px;
-
-    margin-top: -10px;
-}
-
-
-/* =====================================================
-   MATKI BUTTON
-===================================================== */
-
-#matkiBtn {
-    position: relative;
-
-    margin-top: 20px;
-
-    padding:
-        17px 30px;
-
-    border-radius: 50px;
-
-    border:
-        1px solid rgba(255,255,255,.25);
-
-    background:
-        rgba(255,255,255,.07);
-
-    backdrop-filter: blur(15px);
-
-    color: white;
-
-    font-size: 16px;
-
-    transition:
-        transform .3s,
-        box-shadow .3s,
-        background .3s;
-}
-
-#matkiBtn:hover {
-    transform:
-        translateY(-5px)
-        scale(1.03);
-
-    background:
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 15px 45px rgba(80,90,190,.3);
-}
-
-
-/* =====================================================
-   MATKI SHAKE
-===================================================== */
 
 #matki.shake {
-    animation:
-        matkiShake .8s ease-in-out;
+    animation: matkiShake .8s ease;
+}
+
+#matki.broken {
+    opacity: .15;
+    transform: translateX(-50%) translateY(40px) scale(.8);
+    transition: .5s;
 }
 
 @keyframes matkiShake {
-
-    0% {
-        transform:
-            translateX(-50%)
-            rotate(0deg);
+    0%,100% {
+        transform: translateX(-50%) rotate(0);
     }
-
-    15% {
-        transform:
-            translateX(-50%)
-            rotate(-7deg);
+    20% {
+        transform: translateX(-50%) rotate(-8deg);
     }
-
-    30% {
-        transform:
-            translateX(-50%)
-            rotate(7deg);
+    40% {
+        transform: translateX(-50%) rotate(8deg);
     }
-
-    45% {
-        transform:
-            translateX(-50%)
-            rotate(-6deg);
-    }
-
     60% {
-        transform:
-            translateX(-50%)
-            rotate(5deg);
+        transform: translateX(-50%) rotate(-6deg);
     }
-
-    75% {
-        transform:
-            translateX(-50%)
-            rotate(-3deg);
-    }
-
-    100% {
-        transform:
-            translateX(-50%)
-            rotate(0deg);
+    80% {
+        transform: translateX(-50%) rotate(5deg);
     }
 }
 
-
-/* =====================================================
-   BROKEN MATKI
-===================================================== */
-
-#matki.broken {
-    animation:
-        matkiBreak .8s forwards;
+.matki-instruction {
+    color: rgba(255,255,255,.5);
 }
 
-@keyframes matkiBreak {
-
-    0% {
-        opacity: 1;
-
-        transform:
-            translateX(-50%)
-            scale(1);
-    }
-
-    30% {
-        transform:
-            translateX(-50%)
-            scale(1.08)
-            rotate(5deg);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translateX(-50%)
-            translateY(80px)
-            scale(.65)
-            rotate(-15deg);
-    }
+#matkiBtn {
+    margin-top: 22px;
+    padding: 14px 25px;
+    border: 1px solid rgba(220,174,84,.4);
+    border-radius: 30px;
+    background: rgba(220,174,84,.08);
+    color: white;
+    cursor: pointer;
+    transition: .3s;
 }
 
-
-/* =====================================================
-   CELEBRATION MESSAGE
-===================================================== */
+#matkiBtn:hover {
+    background: rgba(220,174,84,.18);
+    transform: translateY(-3px);
+}
 
 #celebrationMessage {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.5);
-
-    width: 100%;
-
+    margin-top: 25px;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: #e6b85b;
     opacity: 0;
-
-    pointer-events: none;
-
-    font-size:
-        clamp(35px,6vw,75px);
-
-    font-weight: bold;
-
-    white-space: nowrap;
-
-    color: white;
-
-    text-shadow:
-        0 0 20px rgba(150,170,255,.7),
-        0 0 60px rgba(120,140,255,.4);
-
-    transition:
-        opacity .6s,
-        transform .7s cubic-bezier(.2,.8,.2,1);
-}
-
-#celebrationMessage span {
-    font-size: .55em;
+    transform: translateY(15px);
+    transition: .6s;
 }
 
 #celebrationMessage.show {
     opacity: 1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
+    transform: translateY(0);
 }
-
-
-/* =====================================================
-   PARTICLES
-===================================================== */
 
 #particles {
     position: absolute;
-
     inset: 0;
-
-    z-index: 20;
-
     pointer-events: none;
 }
 
 .celebration-particle {
     position: absolute;
-
-    font-size: 22px;
-
-    animation:
-        celebrationParticle
-        2.5s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
+    animation: particleBurst 2.5s ease-out forwards;
 }
 
-@keyframes celebrationParticle {
-
+@keyframes particleBurst {
     0% {
+        transform: translate(0,0) scale(1);
         opacity: 1;
-
-        transform:
-            translate(0,0)
-            scale(.5)
-            rotate(0deg);
-    }
-
-    50% {
-        opacity: 1;
-
-        transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
-            scale(1.2)
-            rotate(180deg);
     }
 
     100% {
-        opacity: 0;
-
         transform:
-            translate(
-                var(--x2),
-                var(--y2)
-            )
-            scale(.2)
-            rotate(360deg);
+            translate(var(--x2),var(--y2))
+            scale(.2);
+        opacity: 0;
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    FINAL
-===================================================== */
+   ========================================================= */
 
 .final {
-    min-height: 80vh;
-
+    min-height: 85vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
     text-align: center;
-
     background:
         radial-gradient(
-            circle at center,
-            rgba(80,90,180,.2),
-            transparent 50%
-        ),
-        #02040d;
+            circle,
+            #17245a,
+            #030512 70%
+        );
 }
 
 .final-content {
     max-width: 700px;
+    padding: 40px;
 }
 
 .feather-icon {
-    font-size: 65px;
-
-    margin-bottom: 20px;
+    font-size: 70px;
+    animation: float 4s ease-in-out infinite;
 }
 
 .final h2 {
-    margin: 20px 0;
-
-    font-size:
-        clamp(60px,8vw,110px);
-
-    text-shadow:
-        0 0 30px rgba(130,150,255,.3);
+    margin: 25px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(55px, 10vw, 120px);
+    font-weight: 400;
 }
 
 .final-content > p:not(.small-title) {
-    color:
-        rgba(255,255,255,.6);
-
     line-height: 1.8;
+    color: rgba(255,255,255,.55);
 }
 
 .final-om {
-    margin-top: 40px;
-
-    font-size: 45px;
-
-    opacity: .5;
+    margin-top: 60px;
+    font-size: 50px;
+    opacity: .25;
 }
 
+@keyframes float {
+    50% {
+        transform: translateY(-15px) rotate(4deg);
+    }
+}
 
-/* =====================================================
-   GENERAL REVEAL
-===================================================== */
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .intro-text,
 .section-title,
@@ -2422,301 +1284,323 @@ nav.scrolled {
 .celebrate-content,
 .final-content {
     opacity: 0;
-
-    transform:
-        translateY(50px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+    transform: translateY(30px);
+    transition: opacity .9s ease, transform .9s ease;
 }
 
-.intro-text.reveal-visible,
-.section-title.reveal-visible,
-.vrindavan-content.reveal-visible,
-.celebrate-content.reveal-visible,
-.final-content.reveal-visible {
+.reveal-visible {
     opacity: 1;
-
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
-
-/* =====================================================
-   EXTRA DESKTOP SAFETY
-   Keeps hero text and Krishna correctly separated.
-===================================================== */
+/* =========================================================
+   DESKTOP SAFETY
+   THIS PREVENTS THE ORIGINAL BUG
+   ========================================================= */
 
 @media (min-width: 801px) {
 
-    .hero {
-        position: relative;
-        width: 100%;
-    }
-
     .hero-content {
-        position: relative;
-
-        z-index: 10;
-
-        width: min(650px, 40vw);
-        max-width: 650px;
-
-        margin-left: 9%;
-
-        flex-shrink: 0;
+        left: clamp(35px, 8vw, 125px) !important;
+        right: auto !important;
+        top: 50% !important;
+        width: min(520px, 40vw) !important;
+        margin: 0 !important;
+        transform: translateY(-50%) !important;
     }
 
     .krishna-visual {
-        position: absolute;
-
-        z-index: 2;
-
-        right: 3%;
-        bottom: 5%;
-
-        width: min(700px, 55vw);
-        max-width: 700px;
+        left: auto !important;
+        right: clamp(15px, 3vw, 65px) !important;
+        top: auto !important;
+        bottom: 0 !important;
+        width: min(680px, 48vw) !important;
+        margin: 0 !important;
     }
 
     .krishna-visual img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
+        max-width: 100% !important;
     }
 }
 
+/* =========================================================
+   LARGE SCREEN
+   ========================================================= */
 
-/* =====================================================
+@media (min-width: 1500px) {
+
+    .hero-content {
+        left: 9% !important;
+        width: 500px !important;
+    }
+
+    .krishna-visual {
+        right: 4% !important;
+        width: 650px !important;
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) and (min-width: 769px) {
+
+    .hero-content {
+        left: 5% !important;
+        width: 43vw !important;
+    }
+
+    .krishna-visual {
+        right: -2% !important;
+        width: 55vw !important;
+    }
+
+    .hero h1 span {
+        font-size: 48px;
+    }
+
+    .hero h1 strong {
+        font-size: 58px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .intro {
+        gap: 40px;
+    }
+}
+
+/* =========================================================
    MOBILE
-===================================================== */
+   ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
 
     nav {
+        height: 65px;
         padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 16px;
     }
 
     .nav-links {
         display: none;
     }
 
+    #musicBtn {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Hero becomes vertical */
     .hero {
-        min-height: 850px;
+        min-height: 100svh;
+        height: 100svh;
+    }
+
+    .moon {
+        top: 11%;
+        right: 8%;
+        width: 75px;
     }
 
     .hero-content {
-        margin-left: 0;
+        position: absolute !important;
+        left: 7% !important;
+        right: 7% !important;
+        top: 15% !important;
 
-        width: 100%;
-        max-width: 100%;
+        width: auto !important;
+        margin: 0 !important;
+
+        transform: none !important;
 
         text-align: center;
-
-        margin-top: -100px;
-
-        padding:
-            0 20px;
     }
 
-    .hero h1 {
-        font-size: 65px;
+    .hero h1 span {
+        font-size: 42px;
+    }
+
+    .hero h1 strong {
+        font-size: 50px;
     }
 
     .hero-text {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .krishna-visual {
-        width: 80%;
-
-        max-width: 80%;
-
-        right: 10%;
-
-        bottom: 5%;
-
-        opacity: .55;
+        margin: 20px auto 0;
+        font-size: 14px;
+        max-width: 330px;
     }
 
     .buttons {
         justify-content: center;
-
-        flex-wrap: wrap;
-    }
-
-    .intro {
-        padding:
-            100px 25px;
-
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .om {
-        font-size: 150px;
-
-        margin-top: 40px;
-    }
-
-    .story {
-        padding:
-            100px 20px;
-    }
-
-    .section-title {
-        margin-bottom: 70px;
-    }
-
-    .story-line {
-        left: 18px;
-    }
-
-    .story-card,
-    .story-card-right {
-        width: 100%;
-
-        margin-left: 0;
-
-        padding:
-            20px 20px 60px 55px;
-    }
-
-    .story-number,
-    .story-card-right .story-number {
-        left: -2px;
-
-        right: auto;
-
-        width: 38px;
-        height: 38px;
-
-        top: 32px;
-    }
-
-    .story-info {
-        padding: 25px;
-    }
-
-    .story-info h3 {
-        font-size: 27px;
-    }
-
-    .story-info p {
-        font-size: 15px;
-    }
-
-    .vrindavan {
-        min-height: 850px;
-    }
-
-    .vrindavan-moon {
-        width: 85px;
-        height: 85px;
-
-        top: 80px;
-        right: 10%;
-    }
-
-    .vrindavan-content {
-        margin-top: -80px;
-
-        padding:
-            0 20px;
-    }
-
-    .vrindavan-content h2 {
-        font-size: 75px;
-    }
-
-    .vrindavan-content > p:not(.small-title) {
-        font-size: 15px;
-    }
-
-    .vrindavan .tree {
-        font-size: 55px;
-    }
-
-    .vrindavan .cow {
-        font-size: 45px;
-    }
-
-    .celebrate {
-        min-height: 850px;
-    }
-
-    .matki-stage {
-        transform: scale(.85);
-
-        margin-top: 5px;
-        margin-bottom: -15px;
-    }
-
-    .celebrate h2 {
-        font-size: 48px;
-    }
-
-    .celebrate-subtitle {
-        font-size: 15px;
-    }
-
-    #celebrationMessage {
-        white-space: normal;
-
-        width: 90%;
-    }
-}
-
-
-/* =====================================================
-   SMALL PHONES
-===================================================== */
-
-@media (max-width: 480px) {
-
-    .hero h1 {
-        font-size: 52px;
-    }
-
-    .hero-text {
-        font-size: 15px;
-    }
-
-    .small-title {
-        letter-spacing: 2.5px;
+        margin-top: 20px;
     }
 
     .buttons a {
-        padding:
-            13px 19px;
+        min-height: 44px;
+        padding: 0 18px;
+        font-size: 11px;
+    }
 
-        font-size: 12px;
+    .krishna-visual {
+        left: 50% !important;
+        right: auto !important;
+        bottom: -10px !important;
+
+        width: min(500px, 105vw) !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+    .yamuna {
+        height: 20%;
+    }
+
+    /* Intro */
+    .intro {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 100px 7%;
+    }
+
+    .om {
+        display: none;
     }
 
     .intro h2 {
         font-size: 42px;
     }
 
+    /* Story */
+    .story {
+        padding: 100px 7%;
+    }
+
+    .section-title {
+        margin-bottom: 65px;
+    }
+
+    .story-line {
+        left: 25px;
+    }
+
+    .story-card,
+    .story-card-right {
+        width: 100%;
+        margin-left: 0;
+        grid-template-columns: 50px 1fr;
+        gap: 18px;
+        margin-bottom: 55px;
+    }
+
+    .story-number {
+        width: 50px;
+        height: 50px;
+    }
+
+    .story-info h3 {
+        font-size: 23px;
+    }
+
+    /* Vrindavan */
+    .vrindavan-content {
+        padding: 18vh 7% 0;
+    }
+
     .vrindavan-content h2 {
-        font-size: 62px;
+        font-size: 80px;
     }
 
-    .celebrate h2 {
-        font-size: 42px;
+    .tree {
+        font-size: 75px;
     }
 
-    .final h2 {
-        font-size: 58px;
+    .cow {
+        font-size: 28px;
+    }
+
+    /* Celebration */
+    .celebrate {
+        padding: 100px 7%;
+    }
+
+    .matki-stage {
+        transform: scale(.85);
+        margin-top: 15px;
+    }
+
+    /* Final */
+    .final {
+        min-height: 75vh;
+    }
+
+    .final-content {
+        padding: 25px;
     }
 }
 
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
 
-/* =====================================================
+@media (max-width: 420px) {
+
+    .small-title {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero-content {
+        top: 14% !important;
+    }
+
+    .hero h1 span {
+        font-size: 34px;
+    }
+
+    .hero h1 strong {
+        font-size: 42px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+    }
+
+    .buttons {
+        gap: 8px;
+    }
+
+    .buttons a {
+        padding: 0 14px;
+    }
+
+    .krishna-visual {
+        width: 110vw !important;
+        bottom: -5px !important;
+    }
+
+    .vrindavan-content h2 {
+        font-size: 65px;
+    }
+}
+
+/* =========================================================
    ACCESSIBILITY
-===================================================== */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
