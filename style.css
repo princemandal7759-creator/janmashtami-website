@@ -1,0 +1,286 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#080611;
+color:white;
+}
+
+/* Anime Background */
+
+.background{
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(10,0,20,.65),rgba(20,0,30,.7)),
+url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+filter:brightness(.75);
+z-index:-3;
+}
+
+/* Dark Overlay */
+
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#00000000,#000000aa);
+z-index:-2;
+}
+
+/* Main Card */
+
+.container{
+
+width:90%;
+max-width:520px;
+
+padding:45px;
+
+text-align:center;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 35px rgba(255,0,120,.35),
+0 0 90px rgba(255,0,200,.15);
+
+animation:fade 1.4s ease;
+
+}
+
+/* Text */
+
+.smallText{
+
+font-size:15px;
+
+letter-spacing:2px;
+
+color:#ffc3e8;
+
+margin-bottom:18px;
+
+}
+
+.title{
+
+font-size:60px;
+
+font-weight:700;
+
+background:linear-gradient(90deg,#ff6cab,#ffd1e8);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.name{
+
+font-size:48px;
+
+margin-top:10px;
+
+color:white;
+
+text-shadow:
+0 0 12px #ff69b4,
+0 0 25px hotpink;
+
+animation:glow 2s infinite;
+
+}
+
+.desc{
+
+margin-top:25px;
+
+font-size:17px;
+
+line-height:30px;
+
+color:#ececec;
+
+}
+
+/* Premium Button */
+
+#startBtn{
+
+margin-top:45px;
+
+padding:18px 70px;
+
+font-size:22px;
+
+font-weight:700;
+
+border:none;
+
+border-radius:60px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#ff2e88,#ff76d8,#ff2e88);
+
+background-size:300%;
+
+color:white;
+
+transition:.35s;
+
+box-shadow:
+0 0 20px hotpink,
+0 0 45px deeppink;
+
+animation:
+gradientMove 5s infinite,
+pulse 2s infinite;
+
+}
+
+#startBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 35px hotpink,
+0 0 80px deeppink;
+
+}
+
+/* Floating Hearts */
+
+body::before{
+
+content:"❤️ ❤️ 💖 💕 💗";
+
+position:absolute;
+
+font-size:30px;
+
+top:-80px;
+
+left:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-around;
+
+animation:hearts 10s linear infinite;
+
+opacity:.45;
+
+pointer-events:none;
+
+}
+
+/* Animations */
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes glow{
+
+50%{
+
+text-shadow:
+0 0 30px hotpink,
+0 0 60px deeppink;
+
+}
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+}
+
+@keyframes gradientMove{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+@keyframes hearts{
+
+0%{
+
+transform:translateY(-80px);
+
+}
+
+100%{
+
+transform:translateY(110vh);
+
+}
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
