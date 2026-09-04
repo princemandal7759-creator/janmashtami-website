@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://princemandal7759-creator.github.io/janmashtami-website/sitemap.xml

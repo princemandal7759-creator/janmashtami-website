@@ -1,48 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For My favourite one! ❤️</title>
+    <!-- Primary SEO -->
+    <title>Krishna Janmashtami 2026 | Vrindavan Celebration</title>
+
+    <meta
+        name="description"
+        content="Experience a cinematic Krishna Janmashtami celebration inspired by Mathura, Gokul and Vrindavan, with Krishna's story, devotional flute music, animations and an interactive Matki celebration."
+    >
+
+    <meta
+        name="keywords"
+        content="Krishna Janmashtami, Janmashtami 2026, Krishna, Shri Krishna, Jai Shri Krishna, Vrindavan, Mathura, Gokul, Janmashtami website, Krishna celebration, Janmashtami celebration, Krishna flute"
+    >
+
+    <meta name="author" content="Prince Mandal">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link
+        rel="canonical"
+        href="https://princemandal7759-creator.github.io/janmashtami-website/"
+    >
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#080b22">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <meta
+        property="og:title"
+        content="Krishna Janmashtami 2026 | Vrindavan Celebration"
+    >
+
+    <meta
+        property="og:description"
+        content="Enter a cinematic and interactive Krishna Janmashtami experience inspired by Mathura, Gokul and Vrindavan."
+    >
+
+    <meta
+        property="og:url"
+        content="https://princemandal7759-creator.github.io/janmashtami-website/"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Krishna Janmashtami | Vrindavan"
+    >
+
+    <meta
+        property="og:image"
+        content="https://princemandal7759-creator.github.io/janmashtami-website/assets/krishna-silhouette.png"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Krishna playing flute beneath the moonlit sky"
+    >
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta
+        name="twitter:title"
+        content="Krishna Janmashtami 2026 | Vrindavan Celebration"
+    >
+
+    <meta
+        name="twitter:description"
+        content="A cinematic and interactive celebration of Krishna Janmashtami."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://princemandal7759-creator.github.io/janmashtami-website/assets/krishna-silhouette.png"
+    >
+
+    <!-- Performance -->
+    <link rel="preload" href="style.css" as="style">
+    <link
+        rel="preload"
+        href="assets/krishna-silhouette.png"
+        as="image"
+    >
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Structured Data: Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Krishna Janmashtami | Vrindavan",
+        "alternateName": [
+            "Krishna Janmashtami Website",
+            "Janmashtami 2026"
+        ],
+        "url": "https://princemandal7759-creator.github.io/janmashtami-website/",
+        "description": "An interactive cinematic Krishna Janmashtami celebration inspired by Mathura, Gokul and Vrindavan.",
+        "inLanguage": "en"
+    }
+    </script>
+
+    <!-- Structured Data: Event -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Krishna Janmashtami 2026",
+        "description": "A digital celebration of Krishna Janmashtami featuring the story of Krishna, Vrindavan, devotional flute music and an interactive Matki celebration.",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "url": "https://princemandal7759-creator.github.io/janmashtami-website/",
+        "inLanguage": "en"
+    }
+    </script>
 </head>
 
 <body>
 
-<div class="background"></div>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-symbol">🦚</div>
+        <h2>श्री कृष्ण</h2>
+        <p>Entering Vrindavan...</p>
+        <div class="loader-bar">
+            <span></span>
+        </div>
+    </div>
 
-<div class="overlay"></div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ॐ VRINDAVAN</div>
 
-<div class="container">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#story">Story</a>
+            <a href="#vrindavan">Vrindavan</a>
+            <a href="#celebrate">Celebrate</a>
+        </div>
 
-<h3 class="smallText">
-✨ A Special Surprise ✨
-</h3>
+        <button
+            id="musicBtn"
+            aria-label="Play Krishna flute music"
+            title="Play Krishna flute music"
+        >
+            ♫
+        </button>
+    </nav>
 
-<h1 class="title">
-Helloo cutie!
-</h1>
+    <!-- HERO -->
+    <section class="hero" id="home">
 
-<h2 class="name">
-Meri Pyrii mummaa❤️
-</h2>
+        <div id="stars"></div>
 
-<p class="desc">
-This surprise is specially made for my favourite girl.
-</p>
+        <div class="moon"></div>
 
-<button id="startBtn">
-💖 Click Here 💖
-</button>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
 
-</div>
+        <div class="krishna-visual">
+            <img
+                src="assets/krishna-silhouette.png"
+                alt="Lord Krishna playing the flute under a moonlit sky"
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+            >
+        </div>
 
-<script src="script.js"></script> 
+        <div class="hero-content">
+
+            <p class="small-title">
+                THE NIGHT OF DIVINE ARRIVAL
+            </p>
+
+            <h1>
+                <span>श्री कृष्ण</span>
+                <strong>जन्माष्टमी</strong>
+            </h1>
+
+            <p class="hero-text">
+                On a sacred midnight in Mathura, hope entered the world.
+            </p>
+
+            <div class="buttons">
+                <a href="#story" class="primary">
+                    Enter the Story ↓
+                </a>
+
+                <a href="#vrindavan" class="secondary">
+                    Explore Vrindavan
+                </a>
+            </div>
+
+        </div>
+
+        <div class="yamuna">
+
+            <div class="moon-reflection"></div>
+
+            <div id="waterShimmer"></div>
+
+            <div
+                class="hero-lotus"
+                style="left:22%;top:35%;animation-delay:-1s"
+            ></div>
+
+            <div
+                class="hero-lotus"
+                style="left:47%;top:58%;animation-delay:-3s"
+            ></div>
+
+            <div
+                class="hero-lotus"
+                style="left:70%;top:30%;animation-delay:-4.5s"
+            ></div>
+
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+
+        </div>
+
+        <div class="scroll">
+            SCROLL TO EXPLORE
+            <span></span>
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="intro">
+
+        <div class="intro-text">
+
+            <p class="small-title">
+                A DIVINE STORY
+            </p>
+
+            <h2>
+                A night that <em>changed</em> everything.
+            </h2>
+
+            <p>
+                More than five thousand years ago, beneath the midnight
+                sky of Mathura, a divine child was born.
+            </p>
+
+            <p>
+                His story travelled from Mathura to Gokul, from Gokul
+                to Vrindavan, and eventually into the hearts of millions.
+            </p>
+
+        </div>
+
+        <div class="om">ॐ</div>
+
+    </section>
+
+
+    <!-- STORY -->
+    <section class="story" id="story">
+
+        <div class="story-glow"></div>
+
+        <div class="section-title">
+
+            <p class="small-title">
+                THE DIVINE JOURNEY
+            </p>
+
+            <h2>
+                The Story of Krishna
+            </h2>
+
+            <p>
+                From Mathura to Gokul — a journey of hope,
+                devotion and divine love.
+            </p>
+
+        </div>
+
+
+        <div class="story-timeline">
+
+            <div class="story-line">
+                <span></span>
+            </div>
+
+
+            <article class="story-card reveal">
+
+                <div class="story-number">
+                    01
+                </div>
+
+                <div class="story-info">
+
+                    <span class="story-place">
+                        MATHURA • THE PROPHECY
+                    </span>
+
+                    <h3>
+                        The Night of Destiny
+                    </h3>
+
+                    <p>
+                        A divine prophecy foretold that the eighth
+                        child of Devaki would bring an end to Kansa's tyranny.
+                    </p>
+
+                    <div class="story-symbol">
+                        ॐ
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="story-card story-card-right reveal">
+
+                <div class="story-number">
+                    02
+                </div>
+
+                <div class="story-info">
+
+                    <span class="story-place">
+                        MIDNIGHT • DIVINE BIRTH
+                    </span>
+
+                    <h3>
+                        The Arrival of Krishna
+                    </h3>
+
+                    <p>
+                        At the sacred hour of midnight, Krishna was born
+                        in the prison of Mathura, bringing hope and light.
+                    </p>
+
+                    <div class="story-symbol">
+                        🪷
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="story-card reveal">
+
+                <div class="story-number">
+                    03
+                </div>
+
+                <div class="story-info">
+
+                    <span class="story-place">
+                        YAMUNA • THE JOURNEY
+                    </span>
+
+                    <h3>
+                        Across the Sacred River
+                    </h3>
+
+                    <p>
+                        Vasudeva carried the newborn Krishna through
+                        the night towards Gokul. The Yamuna became part
+                        of this unforgettable journey.
+                    </p>
+
+                    <div class="story-symbol">
+                        🌊
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="story-card story-card-right reveal">
+
+                <div class="story-number">
+                    04
+                </div>
+
+                <div class="story-info">
+
+                    <span class="story-place">
+                        GOKUL • A NEW HOME
+                    </span>
+
+                    <h3>
+                        The Childhood of Krishna
+                    </h3>
+
+                    <p>
+                        In Gokul, Krishna's childhood became filled
+                        with love, friendship and playful adventures.
+                    </p>
+
+                    <div class="story-symbol">
+                        🦚
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- VRINDAVAN -->
+    <section class="vrindavan" id="vrindavan">
+
+        <div class="vrindavan-stars"></div>
+
+        <div class="vrindavan-moon"></div>
+
+        <div id="feathers"></div>
+
+        <div id="fireflies"></div>
+
+        <div class="vrindavan-content">
+
+            <p class="small-title">
+                WELCOME TO
+            </p>
+
+            <h2>
+                वृन्दावन
+            </h2>
+
+            <p>
+                Where every breeze carries the memory of a flute.
+            </p>
+
+            <button
+                id="fluteBtn"
+                class="flute-button"
+                aria-label="Play Krishna flute music"
+            >
+                🪈 Play the Flute
+            </button>
+
+        </div>
+
+
+        <div class="yamuna-vrindavan">
+
+            <div class="vrindavan-reflection"></div>
+
+            <div id="vrindavanShimmer"></div>
+
+            <div class="vr-wave"></div>
+            <div class="vr-wave"></div>
+            <div class="vr-wave"></div>
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+
+        <div class="land">
+
+            <div class="hill left"></div>
+            <div class="hill right"></div>
+
+            <div class="tree tree-left">
+                🌳
+            </div>
+
+            <div class="tree tree-right">
+                🌳
+            </div>
+
+            <div class="cow cow-left">
+                🐄
+            </div>
+
+            <div class="cow cow-right">
+                🐄
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CELEBRATE -->
+    <section class="celebrate" id="celebrate">
+
+        <div class="celebrate-glow"></div>
+
+        <div id="particles"></div>
+
+        <div class="celebrate-content">
+
+            <p class="small-title">
+                JANMASHTAMI
+            </p>
+
+            <h2>
+                The <em>Matki</em> Challenge
+            </h2>
+
+            <p class="celebrate-subtitle">
+                A little mischief. A lot of joy.
+            </p>
+
+
+            <div class="matki-stage">
+
+                <div class="rope"></div>
+
+                <div class="matki-aura"></div>
+
+                <div id="matki">
+
+                    <div class="matki-neck"></div>
+
+                    <div class="matki-body">
+                        <span>ॐ</span>
+                    </div>
+
+                    <div class="matki-decoration"></div>
+
+                </div>
+
+            </div>
+
+
+            <p class="matki-instruction">
+                Tap the Matki to celebrate ✨
+            </p>
+
+            <button id="matkiBtn">
+                🏺 Break the Matki
+            </button>
+
+            <div id="celebrationMessage">
+                <span>✨</span>
+                जय श्री कृष्ण!
+                <span>✨</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="final">
+
+        <div class="final-content">
+
+            <div class="feather-icon">
+                🦚
+            </div>
+
+            <p class="small-title">
+                SHUBH JANMASHTAMI
+            </p>
+
+            <h2>
+                जय श्री कृष्ण
+            </h2>
+
+            <p>
+                May your life be filled with peace,
+                devotion and happiness.
+            </p>
+
+            <div class="final-om">
+                ॐ
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Actual Krishna Flute Audio -->
+    <audio
+        id="fluteAudio"
+        src="assets/krishna_flute.mp3"
+        preload="auto"
+        loop
+    ></audio>
+
+    <script src="script.js" defer></script>
+
 </body>
-
 </html>
