@@ -1,349 +1,631 @@
-const startBtn = document.getElementById("startBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-startBtn.addEventListener("click", () => {
+    /* =====================================================
+       LOADER — FIXED
+       ===================================================== */
 
-document.body.innerHTML = `
+    const loader = document.getElementById("loader");
 
-<div class="scanPage">
+    // Hide loader independently of images/audio/network loading
+    setTimeout(() => {
+        if (loader) {
+            loader.classList.add("hide");
+        }
+    }, 1500);
 
-<h1 class="scanTitle">
-Scanning Emotions...
-</h1>
 
-<div class="scanBox">
+    /* =====================================================
+       STARS
+       ===================================================== */
 
-<div class="progress"></div>
+    const stars = document.getElementById("stars");
 
-</div>
+    if (stars) {
+        for (let i = 0; i < 140; i++) {
+            const star = document.createElement("span");
 
-<p id="percent">0%</p>
+            star.className = "star";
 
-</div>
+            const size = Math.random() * 2.5 + 0.7;
 
-`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 4}s`;
+            star.style.animationDuration =
+                `${2 + Math.random() * 4}s`;
 
-let p = 0;
+            stars.appendChild(star);
+        }
+    }
 
-const bar = document.querySelector(".progress");
 
-const txt = document.getElementById("percent");
+    /* =====================================================
+       SMOOTH NAVIGATION
+       ===================================================== */
 
-const interval = setInterval(()=>{
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-p++;
+        link.addEventListener("click", event => {
 
-bar.style.width = p+"%";
+            const target = document.querySelector(
+                link.getAttribute("href")
+            );
 
-txt.innerHTML = p+"%";
+            if (target) {
+                event.preventDefault();
 
-if(p==100){
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
 
-clearInterval(interval);
+        });
 
-setTimeout(showQuestions,800);
+    });
 
-}
 
-},35);
+    /* =====================================================
+       NAVIGATION SCROLL EFFECT
+       ===================================================== */
+
+    const nav = document.querySelector("nav");
+
+    function updateNav() {
+        if (nav) {
+            nav.classList.toggle("scrolled", window.scrollY > 40);
+        }
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateNav,
+        { passive: true }
+    );
+
+    updateNav();
+
+
+    /* =====================================================
+       HERO PARALLAX
+       ===================================================== */
+
+    const hero = document.querySelector(".hero");
+    const krishna = document.querySelector(".krishna-visual");
+    const moon = document.querySelector(".moon");
+
+    if (
+        hero &&
+        window.matchMedia("(pointer:fine)").matches
+    ) {
+
+        hero.addEventListener("mousemove", event => {
+
+            const rect = hero.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left) /
+                rect.width - 0.5;
+
+            const y =
+                (event.clientY - rect.top) /
+                rect.height - 0.5;
+
+            if (krishna) {
+                krishna.style.transform =
+                    `translate(${x * -10}px, ${y * -6}px)`;
+            }
+
+            if (moon) {
+                moon.style.transform =
+                    `translate(${x * 8}px, ${y * 5}px)`;
+            }
+
+        });
+
+        hero.addEventListener("mouseleave", () => {
+
+            if (krishna) {
+                krishna.style.transform = "";
+            }
+
+            if (moon) {
+                moon.style.transform = "";
+            }
+
+        });
+    }
+
+
+    /* =====================================================
+       WATER SHIMMER
+       ===================================================== */
+
+    function createShimmer(id, count) {
+
+        const container =
+            document.getElementById(id);
+
+        if (!container) return;
+
+        for (let i = 0; i < count; i++) {
+
+            const light =
+                document.createElement("span");
+
+            light.className = "water-light";
+
+            light.style.left =
+                `${Math.random() * 100}%`;
+
+            light.style.top =
+                `${Math.random() * 100}%`;
+
+            light.style.width =
+                `${15 + Math.random() * 85}px`;
+
+            light.style.animationDuration =
+                `${3 + Math.random() * 7}s`;
+
+            light.style.animationDelay =
+                `${Math.random() * -10}s`;
+
+            container.appendChild(light);
+        }
+    }
+
+    createShimmer("waterShimmer", 42);
+    createShimmer("vrindavanShimmer", 24);
+
+
+    /* =====================================================
+       KRISHNA FLUTE AUDIO
+       ===================================================== */
+
+    const fluteButton =
+        document.getElementById("fluteBtn");
+
+    const musicButton =
+        document.getElementById("musicBtn");
+
+    /*
+       Supports both possible audio IDs so the website
+       doesn't break if one HTML version is being used.
+    */
+
+    const fluteAudio =
+        document.getElementById("fluteAudio") ||
+        document.getElementById("music");
+
+    if (fluteAudio) {
+        fluteAudio.volume = 0.38;
+    }
+
+
+    async function playFlute() {
+
+        if (!fluteAudio) return;
+
+        try {
+
+            await fluteAudio.play();
+
+            if (fluteButton) {
+                fluteButton.classList.add("playing");
+                fluteButton.innerHTML =
+                    "🪈 Playing the Flute ✨";
+            }
+
+            if (musicButton) {
+                musicButton.textContent = "♫";
+            }
+
+        } catch (error) {
+
+            console.log(
+                "Audio could not start:",
+                error
+            );
+
+        }
+    }
+
+
+    function stopFlute() {
+
+        if (!fluteAudio) return;
+
+        fluteAudio.pause();
+
+        if (fluteButton) {
+            fluteButton.classList.remove("playing");
+            fluteButton.innerHTML =
+                "🪈 Play the Flute";
+        }
+
+        if (musicButton) {
+            musicButton.textContent = "▶";
+        }
+    }
+
+
+    function toggleFlute() {
+
+        if (!fluteAudio) return;
+
+        if (fluteAudio.paused) {
+            playFlute();
+        } else {
+            stopFlute();
+        }
+    }
+
+
+    if (fluteButton) {
+        fluteButton.addEventListener(
+            "click",
+            toggleFlute
+        );
+    }
+
+    if (musicButton) {
+        musicButton.addEventListener(
+            "click",
+            toggleFlute
+        );
+    }
+
+
+    if (fluteAudio) {
+
+        fluteAudio.addEventListener(
+            "play",
+            () => {
+                if (fluteButton) {
+                    fluteButton.classList.add("playing");
+                    fluteButton.innerHTML =
+                        "🪈 Playing the Flute ✨";
+                }
+            }
+        );
+
+        fluteAudio.addEventListener(
+            "pause",
+            () => {
+                if (fluteButton) {
+                    fluteButton.classList.remove("playing");
+                    fluteButton.innerHTML =
+                        "🪈 Play the Flute";
+                }
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FLOATING PEACOCK FEATHERS
+       ===================================================== */
+
+    const feathers =
+        document.getElementById("feathers");
+
+    if (feathers) {
+
+        for (let i = 0; i < 18; i++) {
+
+            const feather =
+                document.createElement("span");
+
+            feather.className =
+                "floating-feather";
+
+            feather.textContent = "🪶";
+
+            feather.style.left =
+                `${Math.random() * 100}%`;
+
+            feather.style.animationDuration =
+                `${8 + Math.random() * 10}s`;
+
+            feather.style.animationDelay =
+                `${Math.random() * -15}s`;
+
+            feather.style.fontSize =
+                `${16 + Math.random() * 14}px`;
+
+            feathers.appendChild(feather);
+        }
+    }
+
+
+    /* =====================================================
+       FIREFLIES
+       ===================================================== */
+
+    const fireflies =
+        document.getElementById("fireflies");
+
+    if (fireflies) {
+
+        for (let i = 0; i < 35; i++) {
+
+            const firefly =
+                document.createElement("span");
+
+            firefly.className = "firefly";
+
+            firefly.style.left =
+                `${5 + Math.random() * 90}%`;
+
+            firefly.style.top =
+                `${20 + Math.random() * 62}%`;
+
+            firefly.style.animationDuration =
+                `${2.5 + Math.random() * 4}s`;
+
+            firefly.style.animationDelay =
+                `${Math.random() * -6}s`;
+
+            fireflies.appendChild(firefly);
+        }
+    }
+
+
+    /* =====================================================
+       STORY REVEAL
+       ===================================================== */
+
+    const storyItems =
+        document.querySelectorAll(
+            ".story-card.reveal"
+        );
+
+    if ("IntersectionObserver" in window) {
+
+        const storyObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            storyObserver.unobserve(
+                                entry.target
+                            );
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+        storyItems.forEach(item => {
+            storyObserver.observe(item);
+        });
+
+    } else {
+
+        storyItems.forEach(item => {
+            item.classList.add("visible");
+        });
+
+    }
+
+
+    /* =====================================================
+       GENERAL REVEAL
+       ===================================================== */
+
+    const generalItems =
+        document.querySelectorAll(
+            ".intro-text, .section-title, " +
+            ".vrindavan-content, .celebrate-content, " +
+            ".final-content"
+        );
+
+    if ("IntersectionObserver" in window) {
+
+        const generalObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "reveal-visible"
+                            );
+
+                            generalObserver.unobserve(
+                                entry.target
+                            );
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+        generalItems.forEach(item => {
+            generalObserver.observe(item);
+        });
+
+    } else {
+
+        generalItems.forEach(item => {
+            item.classList.add("reveal-visible");
+        });
+
+    }
+
+
+    /* =====================================================
+       MATKI
+       ===================================================== */
+
+    const matki =
+        document.getElementById("matki");
+
+    const matkiButton =
+        document.getElementById("matkiBtn");
+
+    const message =
+        document.getElementById(
+            "celebrationMessage"
+        );
+
+    const particles =
+        document.getElementById("particles");
+
+    let broken = false;
+
+
+    function burstParticles() {
+
+        if (!particles) return;
+
+        const symbols = [
+            "✨",
+            "🦚",
+            "🪷",
+            "✦",
+            "🌟"
+        ];
+
+        for (let i = 0; i < 32; i++) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.className =
+                "celebration-particle";
+
+            particle.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+            particle.style.left = "50%";
+            particle.style.top = "50%";
+
+            const x =
+                (Math.random() - 0.5) * 500;
+
+            const y =
+                (Math.random() - 0.5) * 360;
+
+            particle.style.setProperty(
+                "--x",
+                `${x}px`
+            );
+
+            particle.style.setProperty(
+                "--y",
+                `${y}px`
+            );
+
+            particle.style.setProperty(
+                "--x2",
+                `${x * 1.5}px`
+            );
+
+            particle.style.setProperty(
+                "--y2",
+                `${y + 180}px`
+            );
+
+            particle.style.animationDelay =
+                `${Math.random() * .35}s`;
+
+            particles.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
+        }
+    }
+
+
+    function breakMatki() {
+
+        if (broken) return;
+
+        broken = true;
+
+        if (matki) {
+            matki.classList.add("shake");
+        }
+
+        setTimeout(() => {
+
+            if (!matki) return;
+
+            matki.classList.remove("shake");
+            matki.classList.add("broken");
+
+        }, 800);
+
+
+        setTimeout(() => {
+
+            if (message) {
+                message.classList.add("show");
+            }
+
+            burstParticles();
+
+        }, 650);
+
+
+        if (matkiButton) {
+
+            matkiButton.textContent =
+                "✨ जय श्री कृष्ण ✨";
+
+            matkiButton.disabled = true;
+        }
+    }
+
+
+    if (matki) {
+        matki.addEventListener(
+            "click",
+            breakMatki
+        );
+    }
+
+    if (matkiButton) {
+        matkiButton.addEventListener(
+            "click",
+            breakMatki
+        );
+    }
+
+
+    /* =====================================================
+       CONSOLE
+       ===================================================== */
+
+    console.log(
+        "🦚 Welcome to Vrindavan — Jai Shri Krishna 🙏"
+    );
 
 });
-
-function showQuestions(){
-
-document.body.innerHTML=`
-
-<div class="container">
-
-<h1 class="name">
-Hello madam jihh!! ❤️
-</h1>
-
-<p class="desc">
-Before I show you something...
-
-Answer one question 😊
-</p>
-
-<h2 style="margin-top:40px;">
-Are you merii pyrii si chotti bachhii?🥲🥰
-</h2>
-
-<div style="margin-top:40px;">
-
-<button id="yesBtn">
-YES ❤️
-</button>
-
-<button id="noBtn">
-NO 😅
-</button>
-
-</div>
-
-</div>
-
-`;
-
-const no=document.getElementById("noBtn");
-
-no.onmouseover=()=>{
-
-no.style.position="absolute";
-
-no.style.left=Math.random()*80+"%";
-
-no.style.top=Math.random()*80+"%";
-
-}
-
-document.getElementById("yesBtn").onclick=showLetter;
-
-}
-
-function showLetter(){
-
-document.body.innerHTML=`
-
-<div class="container">
-
-<h1 class="name">
-❤️ Meri Bachhuu ❤️
-</h1>
-
-<p id="typing"></p>
-
-</div>
-
-`;
-
-const text=`
-
-Helloo merii pyrii si cutiee...😊😘
-you are my jigar ka tukda..💕
-
- u are so so so cute gdhii bchhi ap
- bht ache ho yr hmesa mera care
-  krti ho gussa sehti ho yrr you 
- are my precious gem💎.
-
- I never want to lose you in my life. 
- I want to be with you always.
-You are my best friend, my partner,
- and my everything. 😘💕🫂
- I love you more than words can express.🥰
-Tum meri favourite person ho. ❤️
-
-Thank you hamesha mera saath dene ke liye.
-Tumhari smile meri happiness hai.
-Promise karo...
-Hmesha smile karti rahogi 😊
-Love You Forever meri pyriii bchhii ❤️
-
-`;
-
-let i=0;
-
-const target=document.getElementById("typing");
-
-const timer=setInterval(()=>{
-
-target.innerHTML+=text.charAt(i);
-
-i++;
-
-if(i>=text.length){
-
-clearInterval(timer);
-
-setTimeout(showFinal,2500);
-
-}
-
-},45);
-
-}
-
-function showFinal(){
-
-document.body.innerHTML = `
-<div class="container">
-
-<h1 class="name">✨ Surprise ✨</h1>
-
-<img src="images/together.png" class="photo">
-
-<h2>❤️ Prince & Bachhuu❤️</h2>
-
-<p>
-No matter where life takes us...
-You'll always be my favourite. ❤️
-</p>
-
-</div>
-`;
-
-createHearts();
-
-}
-
-function createHearts(){
-
-setInterval(()=>{
-
-const heart=document.createElement("div");
-
-heart.innerHTML="💖";
-
-heart.style.position="fixed";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.top="100vh";
-
-heart.style.fontSize=Math.random()*25+20+"px";
-
-heart.style.animation="fly 6s linear";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},6000);
-
-},200);
-
-}
-
-const style=document.createElement("style");
-
-style.innerHTML=`
-
-.scanPage{
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
-
-background:#090313;
-
-color:white;
-
-}
-
-.scanTitle{
-
-font-size:45px;
-
-margin-bottom:40px;
-
-}
-
-.scanBox{
-
-width:350px;
-
-height:18px;
-
-background:#333;
-
-border-radius:30px;
-
-overflow:hidden;
-
-}
-
-.progress{
-
-height:100%;
-
-width:0;
-
-background:linear-gradient(90deg,#ff4fa5,#ff8bd4);
-
-border-radius:30px;
-
-}
-
-#percent{
-
-margin-top:20px;
-
-font-size:25px;
-
-}
-
-#yesBtn,#noBtn{
-
-padding:18px 45px;
-
-margin:15px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:20px;
-
-cursor:pointer;
-
-}
-
-#yesBtn{
-
-background:lightpink;
-
-color:white;
-
-}
-
-#noBtn{
-
-background:#222;
-
-color:white;
-
-}
-
-#typing{
-
-margin-top:35px;
-
-font-size:20px;
-
-line-height:40px;
-
-white-space:pre-line;
-
-}
-
-@keyframes fly{
-
-0%{
-
-transform:translateY(0);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh);
-
-opacity:0;
-
-}
-
-}
-
-`;
-
-document.head.appendChild(style);
